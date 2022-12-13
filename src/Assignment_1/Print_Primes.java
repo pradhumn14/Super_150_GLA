@@ -16,6 +16,7 @@ public class Print_Primes {
                     c++;
                 }
             }
+
             if (c == 0) {
                 System.out.println(i);
             }

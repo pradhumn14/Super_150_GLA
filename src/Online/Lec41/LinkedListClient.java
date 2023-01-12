@@ -10,6 +10,7 @@ public class LinkedListClient {
         ll.addLast(40);
         ll.display();
         System.out.println(ll.getFirst());
+        System.out.println(ll.getLast());
 
 
     }

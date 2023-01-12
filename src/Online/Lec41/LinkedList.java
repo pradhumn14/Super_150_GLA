@@ -53,10 +53,57 @@ public class LinkedList {
     // get
 
     public int getFirst() throws Exception {
-        if (head == null) {
+        if (this.head == null) {
             throw new Exception("pagal LinkedList khaali h");
         }
         return this.head.data;
+    }
+
+    public int getLast() throws Exception {
+        if (this.head == null) {
+            throw new Exception("pagal LinkedList khaali h");
+        }
+        return this.tail.data;
+    }
+
+    public int getAtIndex(int k) throws Exception {
+        return getNode(k).data;
+    }
+
+    private Node getNode(int k) throws Exception {
+        if (k < 0 || k >= size) {
+            throw new Exception("Index out of Bound");
+        }
+
+        Node temp = head;
+
+        for (int i = 1; i <= k; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
+
+    public int removeFirst() throws Exception {
+        if (this.head == null) {
+            throw new Exception("pagal LinkedList khaali h");
+        }
+
+        Node temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+        this.size--;
+        return temp.data;
+    }
+    public int removeLast() throws Exception {
+        if (this.head == null) {
+            throw new Exception("pagal LinkedList khaali h");
+        }
+
+        Node temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+        this.size--;
+        return temp.data;
     }
 
     public void display() {

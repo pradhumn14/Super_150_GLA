@@ -50,4 +50,26 @@ public class Create_Level_Order {
 
     }
 
+    public void PreOrder() {
+        PreOrder(root);
+        System.out.println();
+    }
+
+    private void PreOrder(Node node) {
+        // TODO Auto-generated method stub
+        if (node == null) {
+            return;
+        }
+
+        System.out.print(node.val + " ");
+        PreOrder(node.left);
+        PreOrder(node.right);
+
+    }
+
+    public static void main(String[] args) {
+        Create_Level_Order cl = new Create_Level_Order();
+        cl.PreOrder();
+    }
+
 }

@@ -28,6 +28,9 @@ public class Graph_Client {
         System.out.println(g.BFS(1, 6));
         System.out.println(g.DFS(1, 6));
 
+        g.BFT();
+        g.DFT();
+
     }
 
 }

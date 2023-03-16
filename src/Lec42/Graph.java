@@ -156,4 +156,83 @@ public class Graph {
 
     }
 
+    public void BFT() {
+        HashSet<Integer> visited = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
+        for (int src : map.keySet()) {
+
+            if (visited.contains(src)) {
+                continue;
+            }
+
+            q.add(src);
+
+            while (!q.isEmpty()) {
+
+                // step-1: remove
+                int rv = q.poll();
+
+                // step-2: if already visited then ignore it
+                if (visited.contains(rv)) {
+                    continue;
+                }
+
+                // step-3: visited mark
+                visited.add(rv);
+
+                // step-4: same word
+                System.out.print(rv + " ");
+
+                //step-5: add neighbours
+                for (int nbrs : map.get(rv).keySet()) {
+                    if (!visited.contains(nbrs)) {
+                        q.add(nbrs);
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    public void DFT() {
+        HashSet<Integer> visited = new HashSet<>();
+        Stack<Integer> st = new Stack<>();
+
+        for (int src : map.keySet()) {
+
+            if (visited.contains(src)) {
+                continue;
+            }
+
+            st.push(src);
+
+            while (!st.isEmpty()) {
+
+                // step-1: remove
+                int rv = st.pop();
+
+                // step-2: if already visited then ignore it
+                if (visited.contains(rv)) {
+                    continue;
+                }
+
+                // step-3: visited mark
+                visited.add(rv);
+
+                // step-4: same word
+                System.out.print(rv + " ");
+
+                //step-5: add neighbours
+                for (int nbrs : map.get(rv).keySet()) {
+                    if (!visited.contains(nbrs)) {
+                        st.push(nbrs);
+                    }
+                }
+
+            }
+
+        }
+    }
+
 }

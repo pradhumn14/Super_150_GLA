@@ -1,5 +1,7 @@
 package Lec42;
 
+import java.util.HashSet;
+
 public class Graph_Client {
 
     public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class Graph_Client {
 //        System.out.println();
 //        g.display();
 
-        System.out.println(g.hasPath(1, 6));
+        System.out.println(g.hasPath(1, 6, new HashSet<>()));
 
     }
 

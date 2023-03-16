@@ -1,6 +1,7 @@
 package Lec42;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Graph {
     private HashMap<Integer, HashMap<Integer, Integer>> map = new HashMap<>();
@@ -52,16 +53,20 @@ public class Graph {
         }
     }
 
-    public boolean hasPath(int src, int des) {
+    public boolean hasPath(int src, int des, HashSet<Integer> visited) {
         if (src == des) {
             return true;
         }
+        visited.add(src);
         for (int nbrs : map.get(src).keySet()) {
-            boolean ans = hasPath(nbrs, des);
-            if (ans) {
-                return ans;
+            if (!visited.contains(nbrs)) {
+                boolean ans = hasPath(nbrs, des, visited);
+                if (ans) {
+                    return ans;
+                }
             }
         }
+        visited.remove(src);
         return false;
     }
 

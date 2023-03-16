@@ -23,6 +23,10 @@ public class Graph_Client {
 //        g.display();
 
         System.out.println(g.hasPath(1, 6, new HashSet<>()));
+        g.printAllPath(1, 6, new HashSet<>(), "");
+
+        System.out.println(g.BFS(1, 6));
+        System.out.println(g.DFS(1, 6));
 
     }
 

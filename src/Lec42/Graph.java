@@ -1,7 +1,6 @@
 package Lec42;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 public class Graph {
     private HashMap<Integer, HashMap<Integer, Integer>> map = new HashMap<>();
@@ -68,6 +67,93 @@ public class Graph {
         }
         visited.remove(src);
         return false;
+    }
+
+    public void printAllPath(int src, int des, HashSet<Integer> visited, String ans) {
+        if (src == des) {
+            System.out.println(ans + src);
+            return;
+        }
+        visited.add(src);
+        for (int nbrs : map.get(src).keySet()) {
+            if (!visited.contains(nbrs)) {
+                printAllPath(nbrs, des, visited, ans + src);
+            }
+        }
+        visited.remove(src);
+//        return false;
+    }
+
+    public boolean BFS(int src, int des) {
+        HashSet<Integer> visited = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
+        q.add(src);
+
+        while (!q.isEmpty()) {
+
+            // step-1: remove
+            int rv = q.poll();
+
+            // step-2: if already visited then ignore it
+            if (visited.contains(rv)) {
+                continue;
+            }
+
+            // step-3: visited mark
+            visited.add(rv);
+
+            // step-4: same word
+            if (rv == des) {
+                return true;
+            }
+
+            //step-5: add neighbours
+            for (int nbrs : map.get(rv).keySet()) {
+                if (!visited.contains(nbrs)) {
+                    q.add(nbrs);
+                }
+            }
+
+        }
+
+        return false;
+
+    }
+
+    public boolean DFS(int src, int des) {
+        HashSet<Integer> visited = new HashSet<>();
+        Stack<Integer> st = new Stack<>();
+        st.push(src);
+
+        while (!st.isEmpty()) {
+
+            // step-1: remove
+            int rv = st.pop();
+
+            // step-2: if already visited then ignore it
+            if (visited.contains(rv)) {
+                continue;
+            }
+
+            // step-3: visited mark
+            visited.add(rv);
+
+            // step-4: same word
+            if (rv == des) {
+                return true;
+            }
+
+            //step-5: add neighbours
+            for (int nbrs : map.get(rv).keySet()) {
+                if (!visited.contains(nbrs)) {
+                    st.push(nbrs);
+                }
+            }
+
+        }
+
+        return false;
+
     }
 
 }

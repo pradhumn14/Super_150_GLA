@@ -29,10 +29,10 @@ public class Djkstra_Algo {
             this.cost = cost;
         }
 
-        @Override
-        public String toString() {
-            return this.vtx + " via" +
-        }
+//        @Override
+//        public String toString() {
+//            return this.vtx + " via" +
+//        }
 
     }
 

@@ -23,9 +23,14 @@ public class Topological_Sort {
         Queue<Integer> q = new LinkedList<>();
         for (int i = 1; i < in.length; i++) {
             if (in[i] == 0) {
-                
+                q.add(i);
             }
         }
+
+        while (!q.isEmpty()) {
+            
+        }
+
     }
 
     public int[] Inderge() {

@@ -16,7 +16,7 @@ public class Graph_Bipartite {
                 }
             }
 
-            q.add(new bipartitePair(src, 0);
+//            q.add(new bipartitePair(src, 0);
 
             while (!q.isEmpty()) {
 

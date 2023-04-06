@@ -1,9 +1,14 @@
 package Lec47;
 
+import java.util.Arrays;
+
 public class House_Robber {
     public static void main(String[] args) {
         int[] arr = {2, 7, 9, 8, 1};
         int[] dp = new int[arr.length];
+        Arrays.fill(dp, -1);
+        System.out.println(Robber(arr, 0));
+        System.out.println(RobberTD(arr, 0, dp));
     }
 
     public static int Robber(int[] arr, int i) {

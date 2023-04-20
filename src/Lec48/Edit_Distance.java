@@ -11,7 +11,7 @@ public class Edit_Distance {
         if (i == s1.length()) {
             return s2.length() - j;
         }
-        if (i == s2.length()) {
+        if (j == s2.length()) {
             return s1.length() - i;
         }
 
